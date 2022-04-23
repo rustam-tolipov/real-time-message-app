@@ -10,6 +10,11 @@ consumer.subscriptions.create('ChatroomChannel', {
   },
 
   received(data) {
-    console.log(data.foo);
+    // #message-container is the id of the div that will contain the messages
+    // {foo: 'fsadfdsafsadf'}
+    console.log(data.mod_message);
+
+    const messageDiv = document.getElementById('message-container');
+    messageDiv.innerHTML += `<p>${data.mod_message}</p>`;
   },
 });

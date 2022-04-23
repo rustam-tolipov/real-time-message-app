@@ -1,9 +1,9 @@
 class ChatroomController < ApplicationController
     before_action :require_user, except: [:show, :index]
-
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @message = Message.new
-    @messages = Message.all
+    @messages = Message.custom_display
   end
 end
