@@ -1,8 +1,8 @@
-import consumer from "./consumer"
+import consumer from './consumer';
 
-consumer.subscriptions.create("ChatroomChannel", {
+consumer.subscriptions.create('ChatroomChannel', {
   connected() {
-    // Called when the subscription is ready for use on the server
+    console.log('connected to chatroom channel 🥳🎉');
   },
 
   disconnected() {
@@ -10,6 +10,6 @@ consumer.subscriptions.create("ChatroomChannel", {
   },
 
   received(data) {
-    // Called when there's incoming data on the websocket for this channel
-  }
+    console.log(data.foo);
+  },
 });
