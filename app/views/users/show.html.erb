@@ -1,0 +1,10 @@
+<section class="articles">
+  <div class="text-center">
+    <% if logged_in? && @user == current_user %>
+    <%= link_to "Edit your pfofile", edit_user_path(@user), class: "btn-classic"%>
+    <%= link_to "Delete Profile", user_path(@user), class: "btn-classic", method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
+  <div class="apple_pagination">
+  </div>fdsfsadf
+</section>
