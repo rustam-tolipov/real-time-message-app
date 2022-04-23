@@ -1,11 +1,11 @@
 You are in sessions new
 
-<%= form_for(:session, html: {rule: "form"}, url: login_path) do |f| %>
+<%= form_for(:session, html: {role: "form"}, url: login_path) do |f| %>
   <%= f.label :username, "Username" %>
   <%= f.text_field :username, placeholder: "Username" %>
 
   <%= f.label :password, "Password" %>
   <%= f.password_field :password, placeholder: "Password" %>
 
-  <%= f.button "Login" %>
+  <%= f.button "Login", class: "btn btn-primary"%>
   <% end %>
