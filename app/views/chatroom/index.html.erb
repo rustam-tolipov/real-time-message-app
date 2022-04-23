@@ -1,7 +1,11 @@
 
-<%= render @messages %>
+<p id="message-container">
+  
+  <%= render @messages %>
 
-<%= form_for(@message, html: {class: 'form-group', role: 'form'}, url: message_path) do |f| %>
+</p>
+
+<%= form_for(@message, html: {class: 'form-group', role: 'form'}, url: message_path, remote: true, :anchor => "form-group") do |f| %>
  <%= f.text_field :body %>
  <%= f.button 'Hi' %>
  <% end %>
