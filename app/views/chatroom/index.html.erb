@@ -1,11 +1,24 @@
+<div class="main">
+  <div class="app">
+    <div class="app__header">
+      <img class="app__header-photo" src="chat.webp" alt="Chat photo" />
+      <span> Paper Plane - Dev Chat </span>
+      <a href="#"> <ion-icon name="ellipsis-horizontal-outline"></ion-icon></a>
+    </div>
+    <div class="chat-box">
+      <div class="chat" id="message-container"><%= render @messages %></div>
+    </div>
+    <%= form_for(@message, html: {class: 'input', role: 'form'}, url: message_path, remote: true, :anchor => "form-group") do |f| %>
+    <ion-icon name="attach-outline"> </ion-icon>
+    <%= f.text_field :body, id: 'message-input', placeholder: 'Type a message...' %>
+    <ion-icon name="happy-outline"></ion-icon>
+    <%= f.button class: "button-submit" do %>
+    <ion-icon name="paper-plane-outline"></ion-icon>
+    <% end %> <% end %>
+  </div>
 
-<p id="message-container">
-  
-  <%= render @messages %>
-
-</p>
-
-<%= form_for(@message, html: {class: 'form-group', role: 'form'}, url: message_path, remote: true, :anchor => "form-group") do |f| %>
- <%= f.text_field :body %>
- <%= f.button 'Hi' %>
- <% end %>
+  <div class="users">
+    <div class="user"><img class="user-img" src="fox.png" /> <span class="user-name">Jacob</span></div>
+    <div class="user"><img class="user-img" src="alisha.png" /> <span class="user-name">Jacob</span></div>
+  </div>
+</div>
