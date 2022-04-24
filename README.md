@@ -17,7 +17,8 @@
 
 
   <h3 align="center">Real Time Messaging App</h3>
-
+  
+  ![real time](https://user-images.githubusercontent.com/69011963/164974341-eb987110-acf8-460b-9b1d-b184970bc85c.gif)
 
   <p align="center">
     A real time messaging app that allows users to communicate with each other in real time.
