@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     @user.destroy
     session[:user_id] = nil if @user == current_user
     flash[:danger] = "User and all articles created by user have been deleted"
-    redirect_to users_path
+    redirect_to signup_path
   end
 
   def update

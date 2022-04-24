@@ -1,5 +1,5 @@
 class ChatroomController < ApplicationController
-    before_action :require_user, except: [:show, :index]
+    before_action :require_user
     before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index

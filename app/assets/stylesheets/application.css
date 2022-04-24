@@ -22,6 +22,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -32,7 +33,7 @@ body {
   background-size: cover;
   backdrop-filter: blur(12px);
   min-height: 100vh;
-  padding: 9.6rem 0;
+  padding: 1.2rem 0;
 }
 
 a:link,
@@ -216,7 +217,7 @@ input:-webkit-autofill:focus {
 
 .chat-box {
   overflow-y: scroll;
-  height: 64rem;
+  height: 58rem;
 }
 
 .chat {
@@ -326,6 +327,12 @@ textarea::placeholder {
   gap: 1.6rem;
 }
 
+.user:hover {
+  border-radius: 7px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
 .user-img {
   height: 4.8rem;
   width: 4.8rem;
@@ -334,4 +341,27 @@ textarea::placeholder {
 
 .user-name {
   font-size: 2rem;
+}
+
+.line {
+  width: 100%;
+  height: 0.1rem;
+  background-color: rgba(256, 256, 256, 0.08);
+  margin-top: auto;
+}
+
+.user--logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.6rem 2.8rem;
+  height: 4.8rem;
+  width: 100%;
+  border-radius: 1rem;
+  background: #315ef2;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
 }
