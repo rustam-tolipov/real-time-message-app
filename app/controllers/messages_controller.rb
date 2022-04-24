@@ -2,15 +2,11 @@ class MessagesController < ApplicationController
   before_action :require_user
 
   def create
-    message = current_user.messages.build(message_params)
-    if message.save
-      ActionCable.server.broadcast "chatroom_channel",
-                                    {mod_message: message_render(message)}
-        html = render(
-        partial: 'messages/message',
-        locals: {message: @message}
-      )
-    end
+    @message = Message.new(message_params)
+    @message.user = current_user
+    @message.save
+    @users = User.all.order(:username)
+    SendMessageJob.perform_later(@message)
   end 
 
   private
