@@ -1,3 +1,4 @@
+<div id="user-id" data-user-id="<%= current_user.id %>"><%= current_user.id %></div>
 <div class="main">
   <div class="app">
     <div class="app__header">
@@ -6,7 +7,11 @@
       <a href="#"> <ion-icon name="ellipsis-horizontal-outline"></ion-icon></a>
     </div>
     <div class="chat-box">
-      <div class="chat" id="message-container"><%= render @messages %></div>
+      <div class="chat" id="message-container">
+        <% @messages.each do |message| %>
+        <%= render 'messages/message', message: message %>
+        <% end %>
+      </div>
     </div>
     <%= form_for(@message, html: {class: 'input', role: 'form'}, url: message_path, remote: true, :anchor => "form-group") do |f| %>
     <ion-icon name="attach-outline"> </ion-icon>
