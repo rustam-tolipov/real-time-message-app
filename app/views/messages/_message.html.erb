@@ -1,1 +1,14 @@
-  <%= message.user.username %>  <%= message.body %> 
+<!-- current_user's message -->
+<% if message.user.id == current_user.id %>
+<div class="msg msg-sent">
+  <strong><%= message.user.username %></strong>
+  <span> <%= message.body %> </span>
+  <div class="msg-status"><span> <%= message.created_at.strftime("%H:%M") %> </span><ion-icon name="checkmark-done-outline"></ion-icon></div>
+</div>
+<% else %>
+<div class="msg msg-recieved">
+  <strong><%= message.user.username %>:</strong>
+  <span> <%= message.body %> </span>
+  <div class="msg-status"><span> <%= message.created_at.strftime("%H:%M") %> </span></div>
+</div>
+<% end %>
