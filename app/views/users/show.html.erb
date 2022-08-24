@@ -1,0 +1,18 @@
+<div class="login">
+  <div class="app--info">
+    <%= image_tag "login-desktop.svg", alt: "Chatilustration", class: "login--img" %>
+
+    <p>Enjoy live chatting with your friends!</p>
+  </div>
+  <div class="login--section">
+    <div class="login--section__header">
+      <h1>Hi <%= current_user.username %></h1>
+      <p class="login--section__subheader">Please enter your credentials</p>
+    </div>
+
+    <div class="text-center">
+      <% if logged_in? && @user == current_user %> 
+      <%= link_to "Edit your profile", edit_user_path(@user), class: "login--submit"%> 
+      <%= button_to "Delete Profile", user_path(@user), class: "login--submit", method: :delete, data: { confirm: "Are you sure?" } %> <% end %></div>
+  </div>
+</div>

@@ -13,3 +13,355 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 400px;
+  color: #fff;
+  background: linear-gradient(0deg, rgba(32, 32, 32, 0.8), rgba(32, 32, 32, 0.8)), url('assets/download.jpg');
+  background-size: cover;
+  backdrop-filter: blur(12px);
+  min-height: 100vh;
+  padding: 1.2rem 0;
+}
+
+a:link,
+a:visited {
+  color: inherit;
+}
+
+.main {
+  margin: 0 auto;
+  padding: 0.58rem;
+  max-width: 1200px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 7px;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  gap: 2.4rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.login {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 7px;
+  padding: 3.2rem 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.session--error {
+  font-size: 1.6rem;
+  color: rgb(163, 74, 74);
+  gap: 2.4rem;
+  margin-top: -1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.app--info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.6rem;
+}
+
+.login--img {
+  width: 100%;
+  height: 100%;
+}
+
+.app--info h1 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.app--info p {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #b3b1b1;
+  line-height: 2.4rem;
+}
+
+.login--section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.login--section__header {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 80%;
+}
+
+.login--section__header h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+}
+
+.login--section__subheader {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  color: rgba(129, 128, 161, 0.682);
+}
+
+.login--section__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login--input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  border: 0.1px solid rgba(176, 198, 255, 0.496);
+  background: transparent;
+  padding-left: 0.8rem;
+  margin-bottom: 1.6rem;
+  width: 100%;
+  border-radius: 7px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.login--input input {
+  border: none;
+  background: transparent;
+  color: #fff;
+  color-scheme: #fff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding: 0.8rem;
+  width: 100%;
+  border-radius: 7px;
+}
+
+.login--section__form input:focus {
+  outline: none;
+}
+
+.login--icon {
+  margin: auto 0.6rem;
+  font-size: 1.8rem;
+}
+
+.login--submit {
+  background: #315ef2;
+  border: none;
+  border-radius: 7px;
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1.6rem;
+}
+
+.users {
+  /* width: 31.2rem; */
+  padding: 3.2rem 3.2rem 3.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.app {
+  /* width: 920px; */
+  background-color: rgba(256, 256, 256, 0.05);
+  border-radius: 7px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  padding-bottom: 1px;
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.4rem;
+  padding: 1.6rem 2.8rem;
+  border-bottom: 1px solid rgba(256, 256, 256, 0.08);
+}
+
+.app__header-photo {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+}
+
+.chat-box {
+  overflow-y: scroll;
+  height: 58rem;
+}
+
+.chat {
+  padding: 1.2rem 5.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* message */
+.msg {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 6.4rem 1.2rem 1.4rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.13);
+  border-radius: 1.2rem;
+}
+
+.msg-status {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  bottom: 4px;
+  right: 7px;
+  font-size: 10px;
+  opacity: 40%;
+}
+
+.msg-status ion-icon {
+  font-size: 1.4rem;
+}
+
+.msg-recieved {
+  align-self: start;
+  border-bottom-left-radius: 0;
+  background-color: #1d2c3f;
+  border: 1px solid rgba(21, 36, 56, 0.75);
+}
+
+.msg-sent {
+  align-self: end;
+  border-bottom-right-radius: 0;
+  background: #456993;
+  border: 1px solid rgba(54, 100, 158, 0.75);
+}
+
+/* input */
+.input {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  margin: 1.7rem 5.6rem;
+  padding: 1.7rem;
+  background: rgba(255, 255, 255, 0.0512);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.13);
+  border-radius: 7px;
+}
+
+.input ion-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.input input textarea {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: inherit;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+#message-input {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: inherit;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.button-submit {
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.input input::placeholder,
+textarea::placeholder {
+  color: #ddd;
+}
+
+/* users */
+.user {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.user:hover {
+  border-radius: 7px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.user-img {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+}
+
+.user-name {
+  font-size: 2rem;
+}
+
+.line {
+  width: 100%;
+  height: 0.1rem;
+  background-color: rgba(256, 256, 256, 0.08);
+  margin-top: auto;
+}
+
+.user--logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.6rem 2.8rem;
+  height: 4.8rem;
+  width: 100%;
+  border-radius: 1rem;
+  background: #315ef2;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}

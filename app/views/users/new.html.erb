@@ -1,0 +1,11 @@
+
+
+          <% if logged_in? %>
+      <%= render 'form' %>
+
+    <% else %>  
+      <%= render 'form' %>
+    <% end %>
+
+    <% if !logged_in? %>
+    <% end %>

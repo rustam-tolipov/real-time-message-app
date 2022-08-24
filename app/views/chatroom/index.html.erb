@@ -1,0 +1,46 @@
+<div id="user-id" data-user-id="<%= current_user.id %>"><%= current_user.id %></div>
+<div class="main">
+  <div class="app">
+    <div class="app__header">
+      <%= link_to root_path, class: "app__header__logo" do %>
+      <%= image_tag "chat.webp", alt: "Chat logo", class: "app__header-photo" %>
+      <% end %>
+      <span> Paper Plane - Dev Chat </span>
+      <%= link_to user_path(current_user), class: "app__header__user" do %>
+      <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+      <% end %>
+        
+    </div>
+    <div class="chat-box">
+      <div class="chat" id="message-container">
+        <% @messages.each do |message| %>
+        <%= render 'messages/message', message: message %>
+        <% end %>
+      </div>
+    </div>
+    <%= form_for(@message, html: {class: 'input', role: 'form'}, url: message_path, remote: true, :anchor => "form-group") do |f| %>
+    <ion-icon name="attach-outline"> </ion-icon>
+    <%= f.text_field :body, id: 'message-input', placeholder: 'Type a message...' %>
+    <ion-icon name="happy-outline"></ion-icon>
+    <%= f.button class: "button-submit" do %>
+    <ion-icon name="paper-plane-outline"></ion-icon>
+    <% end %> <% end %>
+  </div>
+
+  <div class="users">
+
+    <% @users.each do |user| %>
+    <div class="user">
+      <%= image_tag 'fox.png', class: 'user-img' %>
+      <span class="user-name"><%= user.username %></span></div>
+    <% end %>
+
+            <span class="line">
+        </span>
+
+     <%= button_to logout_path, method: :delete, class: 'user--logout' do %>
+     Logout
+      <ion-icon name="log-out-outline"></ion-icon>
+      <% end %>  
+  </div>
+</div>

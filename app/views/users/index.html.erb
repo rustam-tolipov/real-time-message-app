@@ -1,0 +1,27 @@
+<% @users.each do |user| %>
+<div class="user-container">
+  <div class="user-card">
+    <div class="user-card-header">
+      <h2><%= user.username %></h2>
+      <!-- gravatar -->
+    </div>
+    <div class="user-card-footer">
+      <%= link_to 'View profile', user, class: "btn-classic" %> 
+      <% if logged_in? %>
+      <% if user == current_user %>
+      <%= link_to 'Edit profile', edit_user_path(user), class: "btn-classic" %>
+      <% end %>
+        <% if current_user.admin? %>
+          <%= link_to "Delete user", user_path(user), class: "btn btn-outline-danger", method: :delete,
+          data: {confirm: "Are you sure you want to delete the user account and all associated articles?"}
+          %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="user-card-header">
+      <h2>Joined at: <%= time_ago_in_words(user.created_at) %> ago</h2>
+    </div>
+  </div>
+</div>
+
+<% end %>

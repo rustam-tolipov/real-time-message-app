@@ -1,0 +1,48 @@
+<% if @user.errors.any? %>
+<div class="alert alert-danger">
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %> 
+
+
+    <div class="login">
+      <div class="app--info">
+        <%= image_tag "login-desktop.svg", alt: "Chatilustration", class: "login--img" %>
+
+        <p>Enjoy live chatting with your friends!</p>
+      </div>
+      <div class="login--section">
+        <div class="login--section__header">
+          <% if !logged_in? %>
+          <h1>Sign up</h1>
+          <% else %>
+          <h1>Login</h1>
+
+          <% end %>
+
+            <p class="login--section__subheader">Please enter your credentials</p>
+        </div>
+
+
+        <%= form_with(model: @user, local: true) do |f| %>
+
+          <div class="login--input">
+            <ion-icon name="person-circle-outline" class="login--icon"></ion-icon>
+            <%= f.text_field :username, placeholder: "Username" %>
+          </div>
+
+          <div class="login--input">
+            <ion-icon name="person-circle-outline" class="login--icon"></ion-icon>
+          <%= f.password_field :password, placeholder: "Password" %>
+          </div>
+
+          <%= f.submit(@user.new_record? ? "Sign up" : "Update account" , class: "login--submit") %>
+          <%= link_to 'Cancel', root_path, class: "btn-classic" %>
+        <% end %>
+      </div>
+    </div>
+
